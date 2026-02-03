@@ -12,6 +12,6 @@ endfunction
 
 function s:RunTargetBazelTests()
    let file_name = @%
-   let top_level_target = split(system("bazel query " . file_name), ":")[0]
+   let top_level_target = split(system("bazel --quiet query " . file_name), ":")[0]
    call VimuxRunCommand("clear && " . "bazel test " . top_level_target . ":all")
 endfunction
